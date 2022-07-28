@@ -25,6 +25,9 @@
     "styled-components": "^5.3.5",
     "typescript": "^4.7.4"
   },
+  "resolutions": {
+    "mui/styled-engine-sc": "npm:@mui/styled-enginde-sc@latest"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

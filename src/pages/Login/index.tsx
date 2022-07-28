@@ -1,11 +1,15 @@
-import { Button } from '@mui/material';
-import { LoginContainer } from './styles';
-import useViewModel from './ViewModel';
+import { LoginButton, LoginContainer, ThemeButton } from "./styles";
+import useViewModel from "./ViewModel";
 
 export function LoginPage() {
-  const { onButtonSignInClicked, username, isAuthenticated } = useViewModel();
+  const {
+    onButtonSignInClicked,
+    username,
+    isAuthenticated,
+    onCLickChangeTheme,
+  } = useViewModel();
 
-  const split = username.split(' ');
+  const split = username.split(" ");
 
   return (
     <LoginContainer>
@@ -15,13 +19,12 @@ export function LoginPage() {
         </h1>
       )}
 
-      <Button
-        variant='contained'
-        color='warning'
-        onClick={onButtonSignInClicked}
-      >
+      <LoginButton variant="contained" onClick={onButtonSignInClicked}>
         Login
-      </Button>
+      </LoginButton>
+      <ThemeButton variant="contained" onClick={onCLickChangeTheme}>
+        Change Theme
+      </ThemeButton>
     </LoginContainer>
   );
 }
