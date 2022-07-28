@@ -17,9 +17,4 @@ Escolhi usar o Firebase para fazer a autenticação com google por ser capaz de 
 
 Escolhi usar o Redux para gerenciamento de estado, junto com o toolkit, para melhor legibilidade do código e acesso ao RTK query. Escolhi usar Redux ao invés da Context API, pois a Context costuma ter mais problemas com otimização de renderizações.(Apesar do atual projeto ser pequeno e a Context provavelmente seria suficiente.)
 
-# Para Rodar o App
-
-Criar uma conta no Firebase e criar um projeto no Firebase.
-Pegar as variáveis de ambiente do projeto do Firebase e colocar no arquivo .env
-Em seguida usar o yarn install para obter instalar os módulos do projeto.
-Para rodar o app, usar o yarn start.
+Escolhi usar o redux ao invés do localStorage para alterar o tema, para poder fazer uso da ferramenta, mesmo ciente que no local storage o tema se mantém após uma atualização da página.
