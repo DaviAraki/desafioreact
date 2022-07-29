@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { LoginPage } from "./pages/Login";
+import { lightTheme } from "./styles/themes/light";
+import { ThemeProvider } from "@mui/material";
+import { ThemeProvider as StyledTheme } from "styled-components";
+import { darkTheme } from "./styles/themes/dark";
+import { GlobalStyle } from "./styles/global";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
 
 function App() {
+  const { isLightTheme } = useSelector((state: RootState) => state.theme);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+      <StyledTheme theme={isLightTheme ? lightTheme : darkTheme}>
+        <LoginPage />
+        <GlobalStyle />
+      </StyledTheme>
+    </ThemeProvider>
   );
 }
 
