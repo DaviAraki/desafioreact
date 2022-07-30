@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from '../../store/slices/themeSlice';
-import * as FirebaseController from '../../services/firebaseController';
+import * as FirebaseController from '../../services/firebase/firebaseController';
 import { useEffect, useState } from 'react';
 import { setAuthentication } from '../../store/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
@@ -15,9 +15,9 @@ export default function TextMenuViewModel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    !isAuthenticated && navigate('/');
-  }, [isAuthenticated, navigate]);
+  // useEffect(() => {
+  //   !isAuthenticated && navigate('/');
+  // }, [isAuthenticated, navigate]);
 
   function onCLickChangeTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');
