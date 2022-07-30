@@ -14,7 +14,3 @@ export const LoginContainer = styled.div`
 export const LoginButton = styledMaterial(Button)`
   background-color: ${(props) => props.theme.palette.primary.main};
 `;
-
-export const ThemeButton = styledMaterial(Button)`
-  background-color: ${(props) => props.theme.palette.secondary.main};
-`;
