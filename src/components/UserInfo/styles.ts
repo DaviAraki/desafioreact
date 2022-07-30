@@ -6,8 +6,8 @@ export const UserInfoContainer = styled.div`
 `;
 
 export const UserInitialsContainer = styled.div`
-  width: 4vw;
-  height: 4vw;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
