@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 import { setAuthentication } from '../../store/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../store';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 export default function TextMenuViewModel() {
   const [errorMessage, setErrorMessage] = useState('');
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
   const { isAuthenticated } = useSelector((state: RootState) => state.user);
 
   const dispatch = useDispatch();
@@ -18,8 +20,12 @@ export default function TextMenuViewModel() {
   }, [isAuthenticated, navigate]);
 
   function onCLickChangeTheme() {
-    dispatch(changeTheme());
+    setTheme(theme === 'light' ? 'dark' : 'light');
   }
+
+  useEffect(() => {
+    dispatch(changeTheme(theme));
+  }, [dispatch, theme]);
 
   async function onButtonLogoutClick() {
     setErrorMessage('');

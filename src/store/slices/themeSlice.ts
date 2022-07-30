@@ -1,26 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "..";
+import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '..';
 
 interface ThemeState {
-  isLightTheme: boolean;
+  theme: string;
 }
 
 const initialState: ThemeState = {
-  isLightTheme: true,
+  theme: 'light',
 };
 
 export const themeSlice = createSlice({
-  name: "theme",
+  name: 'theme',
   initialState,
   reducers: {
-    changeTheme: (state) => {
-      state.isLightTheme = !state.isLightTheme;
+    changeTheme: (state, action) => {
+      state.theme = action.payload;
     },
   },
 });
 
 export const { changeTheme } = themeSlice.actions;
 
-export const theme = (state: RootState) => state.theme.isLightTheme;
+export const theme = (state: RootState) => state.theme.theme;
 
 export default themeSlice.reducer;

@@ -16,5 +16,3 @@ Escolhi usar o i18n, pois é uma biblioteca que permite a tradução de textos e
 Escolhi usar o Firebase para fazer a autenticação com google por ser capaz de receber as iniciais e ter um login realista.
 
 Escolhi usar o Redux para gerenciamento de estado, junto com o toolkit, para melhor legibilidade do código e acesso ao RTK query. Escolhi usar Redux ao invés da Context API, pois a Context costuma ter mais problemas com otimização de renderizações.(Apesar do atual projeto ser pequeno e a Context provavelmente seria suficiente.)
-
-Escolhi usar o redux ao invés do localStorage para alterar o tema, para poder fazer uso da ferramenta, mesmo ciente que no local storage o tema se mantém após uma atualização da página.

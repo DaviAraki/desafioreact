@@ -1,6 +1,4 @@
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import IconMenu from '../IconMenu';
 import LanguageSelector from '../LanguageSelector';
 import TextMenu from '../TextMenu';
