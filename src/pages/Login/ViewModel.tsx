@@ -1,46 +1,46 @@
-import { useEffect, useState } from "react";
-import * as FirebaseController from "../../services/firebaseController";
-import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { setAuthentication } from "../../store/slices/userSlice";
+import { useEffect, useState } from 'react';
+import * as FirebaseController from '../../services/firebaseController';
+import { onAuthStateChanged, UserCredential } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import {
+  setAuthentication,
+  setUser,
+  UserInfo,
+} from '../../store/slices/userSlice';
 
 export default function LoginPageViewModel() {
   const auth = FirebaseController.firebaseAuth.getAuth();
-  const [username, setUsername] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const { isAuthenticated } = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
 
+  const saveUser = (userCredentials: UserCredential) => {
+    const user = {
+      name: userCredentials.user.displayName!,
+      email: userCredentials.user.email!,
+      avatar: userCredentials.user.photoURL!,
+      userId: userCredentials.user.uid,
+    } as UserInfo;
+    user && dispatch(setUser(user));
+  };
+
   async function onButtonSignInClicked() {
-    setErrorMessage("");
+    setErrorMessage('');
     try {
       const userCredentials = await FirebaseController.signInWithGoogle();
-      setUsername(userCredentials.user.displayName!);
+      saveUser(userCredentials);
       dispatch(setAuthentication(true));
     } catch (err) {
       if (err instanceof Error) {
         console.log(err.message);
       } else {
-        console.log("Unexpected error", err);
+        console.log('Unexpected error', err);
       }
     }
   }
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setAuthentication(true));
-      }
-      return () => {
-        unsubscribe();
-      };
-    });
-  }, [auth, dispatch]);
-
   return {
-    username,
-    setUsername,
     onButtonSignInClicked,
     isAuthenticated,
     errorMessage,
