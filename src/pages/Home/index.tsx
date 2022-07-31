@@ -1,3 +1,4 @@
+import { EmailContainer } from '../../components/EmailContainer';
 import { Header } from '../../components/Header';
 import { SearchComponent } from '../../components/SearchComponent';
 import { TaskMenu } from '../../components/TaskMenu';
@@ -14,6 +15,7 @@ export const Home = () => {
           <TaskMenu />
         </TasksContainer>
         <SearchComponent />
+        <EmailContainer />
       </HomeContainer>
     </>
   );

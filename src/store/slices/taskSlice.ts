@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '..';
-import { featuresApi } from '../../services/features';
+import { featuresApi } from '../../services/tasks';
 
 export interface TaskState {
   menus: Tasks[];

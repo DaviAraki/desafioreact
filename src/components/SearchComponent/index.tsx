@@ -1,5 +1,4 @@
 import { CheckBox } from '@mui/icons-material';
-import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SearchInput } from '../SearchInput';
 import { ButtonsContainer, SearchButton, SearchContainer } from './styles';

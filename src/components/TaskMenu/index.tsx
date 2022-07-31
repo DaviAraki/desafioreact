@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useGetFeaturesQuery } from '../../services/features';
+import { useGetFeaturesQuery } from '../../services/tasks';
 import { RootState } from '../../store';
 import { Tasks, TaskState } from '../../store/slices/taskSlice';
 import TaskList from '../TaskList';
