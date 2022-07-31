@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import { Email, subMenu } from '../../store/slices/emailSlice';
 import { Input } from './styles';
+import useViewModel from './ViewModel';
 
 function SearchInput() {
-  const [value, setValue] = useState('');
-
-  const handleChange = (e: string) => {
-    setValue(e);
-  };
+  const { handleChange, items } = useViewModel();
 
   return (
     <>
@@ -19,10 +16,11 @@ function SearchInput() {
         }}
       />
       <datalist id='task-suggestions'>
-        <option value='Desenvolver um app' />
-        <option value='Desenvolver um site' />
-        <option value='Desenvolver um game' />
-        <option value='Desenvolver um software' />
+        {items?.map((email: Email) =>
+          email?.subMenuItems?.map((subMenu: subMenu) => (
+            <option key={subMenu.id} value={subMenu.subject} />
+          ))
+        )}
       </datalist>
     </>
   );

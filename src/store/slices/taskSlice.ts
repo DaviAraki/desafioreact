@@ -1,13 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '..';
-import { featuresApi } from '../../services/features';
+import { featuresApi } from '../../services/tasks';
 
 export interface TaskState {
   menus: Tasks[];
+  marked: number[];
 }
 
 export interface Tasks {
-  id?: number;
+  id: number;
   name: string;
   subMenus: subMenu[];
 }
@@ -19,12 +20,20 @@ export interface subMenu {
 
 const initialState: TaskState = {
   menus: [],
+  marked: [],
 };
 
 export const taskSlice = createSlice({
   name: 'tasks',
   initialState,
-  reducers: {},
+  reducers: {
+    setMarked: (state, action: PayloadAction<number[]>) => {
+      state.marked = action.payload;
+    },
+    archiveTasks: (state, action: PayloadAction<Tasks[]>) => {
+      state.menus = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(
       featuresApi.endpoints.getFeatures.matchFulfilled,
@@ -36,5 +45,8 @@ export const taskSlice = createSlice({
 });
 
 export const tasks = (state: RootState) => state.tasks;
+export const selectMarked = (state: RootState) => state.tasks.marked;
+
+export const { setMarked, archiveTasks } = taskSlice.actions;
 
 export default taskSlice.reducer;

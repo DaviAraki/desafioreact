@@ -1,6 +1,7 @@
-import { Divider } from '@mui/material';
-import { UserInfoContainer, UserInitialsContainer } from './styles';
-import useViewModel from './ViewModel';
+import { Divider } from "@mui/material";
+import { UserInitials } from "../UserInitials";
+import { UserInfoContainer } from "./styles";
+import useViewModel from "./ViewModel";
 
 function UserInfo() {
   const { initials } = useViewModel();
@@ -8,7 +9,7 @@ function UserInfo() {
   return (
     <>
       <UserInfoContainer>
-        <UserInitialsContainer>{initials}</UserInitialsContainer>
+        <UserInitials size={"medium"}>{initials}</UserInitials>
       </UserInfoContainer>
       <Divider variant='middle' />
     </>

@@ -3,22 +3,12 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import useLocalStorage from '../../hooks/useLocalStorage';
-import i18n from '../../i18n';
 import { useTranslation } from 'react-i18next';
+import useViewModel from './ViewModel';
 
 export default function LanguageSelector() {
-  const [language, setLanguage] = useLocalStorage('language', 'ptBR');
   const { t } = useTranslation();
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    changeLanguage((event.target as HTMLInputElement).value);
-  };
-
-  const changeLanguage = (chosenLanguage: string) => {
-    setLanguage(chosenLanguage);
-    i18n.changeLanguage(chosenLanguage);
-  };
+  const { handleChange, language } = useViewModel();
 
   return (
     <FormControl>

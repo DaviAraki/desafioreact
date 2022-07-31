@@ -1,3 +1,4 @@
+import { EmailsContainer } from '../../components/EmailsContainer';
 import { Header } from '../../components/Header';
 import { SearchComponent } from '../../components/SearchComponent';
 import { TaskMenu } from '../../components/TaskMenu';
@@ -13,7 +14,10 @@ export const Home = () => {
           <UserInfo />
           <TaskMenu />
         </TasksContainer>
-        <SearchComponent />
+        <div>
+          <SearchComponent />
+          <EmailsContainer />
+        </div>
       </HomeContainer>
     </>
   );
