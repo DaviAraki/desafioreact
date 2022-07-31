@@ -1,9 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const EmailContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  flex: 1;
+  justify-content: space-between;
+`;
+
+export const MainContent = styled.div`
+  display: flex;
 `;
 
 export const Content = styled.div`
@@ -22,11 +28,17 @@ export const Subject = styled.h5`
 
 export const DateAndParticipants = styled.div`
   display: flex;
+  height: 3rem;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Date = styled.p`
   font-size: 0.8rem;
 `;
 
-export const Participants = styled.div``;
+export const Participants = styled.div`
+  display: flex;
+  gap: 0.2rem;
+`;

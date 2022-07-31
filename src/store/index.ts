@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { featuresApi } from '../services/tasks';
-import themeReducer from './slices/themeSlice';
-import userReducer from './slices/userSlice';
-import taskReducer from './slices/taskSlice';
-import emailReducer from './slices/emailSlice';
-import { emailsApi } from '../services/emails';
+import { configureStore } from "@reduxjs/toolkit";
+import { featuresApi } from "../services/tasks";
+import themeReducer from "./slices/themeSlice";
+import userReducer from "./slices/userSlice";
+import taskReducer from "./slices/taskSlice";
+import emailReducer from "./slices/emailSlice";
+import { emailsApi } from "../services/emails";
 
 export const store = configureStore({
   reducer: {
@@ -17,7 +17,9 @@ export const store = configureStore({
   },
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(featuresApi.middleware),
+    getDefaultMiddleware()
+      .concat(featuresApi.middleware)
+      .concat(emailsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

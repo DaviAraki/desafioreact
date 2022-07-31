@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Input } from './styles';
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { Email, setEmailFilter, subMenu } from "../../store/slices/emailSlice";
+import { Input } from "./styles";
 
 function SearchInput() {
-  const [value, setValue] = useState('');
+  const { items } = useSelector((state: RootState) => state.emails);
+  const dispatch = useDispatch();
 
   const handleChange = (e: string) => {
-    setValue(e);
+    dispatch(setEmailFilter(e));
   };
 
   return (
@@ -19,10 +22,11 @@ function SearchInput() {
         }}
       />
       <datalist id='task-suggestions'>
-        <option value='Desenvolver um app' />
-        <option value='Desenvolver um site' />
-        <option value='Desenvolver um game' />
-        <option value='Desenvolver um software' />
+        {items?.map((email: Email) =>
+          email?.subMenuItems?.map((subMenu: subMenu) => (
+            <option key={subMenu.id} value={subMenu.subject} />
+          ))
+        )}
       </datalist>
     </>
   );

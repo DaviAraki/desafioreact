@@ -1,8 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const UserInitialsContainer = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
+interface UserInitialsProps {
+  size: "small" | "medium" | "large";
+}
+
+export const UserInitialsContainer = styled.div<UserInitialsProps>`
+  width: ${(props) => (props.size === "small" ? "1.3rem" : "2.5rem")};
+  height: ${(props) => (props.size === "small" ? "1.3rem" : "2.5rem")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,4 +14,5 @@ export const UserInitialsContainer = styled.div`
   background-color: purple;
   font-weight: bold;
   color: white;
+  font-size: ${(props) => (props.size === "small" ? "0.8rem" : "1rem")};
 `;
