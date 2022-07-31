@@ -40,4 +40,6 @@ export const { setAuthentication, setUser } = userSlice.actions;
 
 export const authentication = (state: RootState) => state.user.isAuthenticated;
 
+export const userData = (state: RootState) => state.user.userData;
+
 export default userSlice.reducer;
