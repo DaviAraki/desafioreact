@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const EmailContainer = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ export const DateAndParticipants = styled.div`
   display: flex;
   height: 3rem;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 `;
 
