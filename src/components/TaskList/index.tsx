@@ -9,7 +9,7 @@ import { TaskItemContainer } from './styles';
 import { Tasks } from '../../store/slices/taskSlice';
 import useViewModel from './ViewModel';
 
-export default function TaskList({ name, subMenus }: Tasks) {
+export default function TaskList({ name, subMenus, id }: Tasks) {
   const { checked, handleChange, handleClick, open } = useViewModel();
 
   return (
@@ -21,7 +21,7 @@ export default function TaskList({ name, subMenus }: Tasks) {
         <ListItemText primary={name} />
         <Checkbox
           checked={checked}
-          onChange={handleChange}
+          onChange={() => handleChange(id)}
           inputProps={{ 'aria-label': 'controlled' }}
         />
         <h3>{subMenus.length}</h3>
