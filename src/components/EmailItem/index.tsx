@@ -1,4 +1,3 @@
-import { Subject } from '@mui/icons-material';
 import { subMenu } from '../../store/slices/emailSlice';
 import { UserInitials } from '../UserInitials';
 import {
@@ -8,6 +7,7 @@ import {
   EmailContainer,
   Name,
   Participants,
+  Subject,
 } from './styles';
 
 interface EmailItemProps {
@@ -15,6 +15,8 @@ interface EmailItemProps {
 }
 
 function EmailItem({ email }: EmailItemProps) {
+  console.log('subject', email.subject);
+
   return (
     <EmailContainer>
       <UserInitials>{email.owner}</UserInitials>
