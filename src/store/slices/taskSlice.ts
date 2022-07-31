@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '..';
 import { featuresApi } from '../../services/features';
 
-interface TaskSlice {
+export interface TaskState {
   menus: Tasks[];
 }
 
@@ -17,26 +17,24 @@ export interface subMenu {
   id: number;
 }
 
-const initialState: TaskSlice = {
+const initialState: TaskState = {
   menus: [],
 };
 
-export const themeSlice = createSlice({
+export const taskSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
       featuresApi.endpoints.getFeatures.matchFulfilled,
-      (state, action) => {
+      (state, action: PayloadAction<TaskState>) => {
         state.menus = action.payload.menus;
       }
     );
   },
 });
 
-//export const { changeTheme } = themeSlice.actions;
+export const tasks = (state: RootState) => state.tasks;
 
-export const theme = (state: RootState) => state.theme.theme;
-
-export default themeSlice.reducer;
+export default taskSlice.reducer;
