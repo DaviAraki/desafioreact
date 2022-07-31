@@ -1,7 +1,7 @@
-import { Checkbox } from "@mui/material";
-import { useState } from "react";
-import { subMenu } from "../../store/slices/emailSlice";
-import { UserInitials } from "../UserInitials";
+import { Checkbox } from '@mui/material';
+import { subMenu } from '../../store/slices/emailSlice';
+import { UserInitials } from '../UserInitials';
+import useViewModel from './ViewModel';
 import {
   Content,
   Date,
@@ -11,39 +11,35 @@ import {
   Name,
   Participants,
   Subject,
-} from "./styles";
+} from './styles';
 
 interface EmailItemProps {
   email: subMenu;
 }
 
 function EmailItem({ email }: EmailItemProps) {
-  const [showCheckBox, setShowCheckBox] = useState(false);
-  const [checked, setChecked] = useState(false);
-
-  const handleMouseOver = () => {
-    setShowCheckBox(true);
-  };
-
-  const handleMouseOut = () => {
-    setShowCheckBox(false);
-  };
-
-  const handleChange = () => {
-    setChecked(!checked);
-  };
+  const {
+    checked,
+    handleChange,
+    handleMouseLeave,
+    handleMouseOver,
+    showCheckBox,
+  } = useViewModel();
 
   return (
-    <EmailContainer onMouseOver={handleMouseOver} onMouseLeave={handleMouseOut}>
+    <EmailContainer
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+    >
       <MainContent>
         {showCheckBox ? (
           <Checkbox
             checked={checked}
             onChange={handleChange}
-            inputProps={{ "aria-label": "controlled" }}
+            inputProps={{ 'aria-label': 'controlled' }}
           />
         ) : (
-          <UserInitials size={"medium"}>{email.owner}</UserInitials>
+          <UserInitials size={'medium'}>{email.owner}</UserInitials>
         )}
         <Content>
           <Name>{email.name}</Name>
@@ -58,7 +54,7 @@ function EmailItem({ email }: EmailItemProps) {
             checked && showCheckBox ? (
               <Checkbox />
             ) : (
-              <UserInitials size={"small"} key={user}>
+              <UserInitials size={'small'} key={user}>
                 {user}
               </UserInitials>
             )

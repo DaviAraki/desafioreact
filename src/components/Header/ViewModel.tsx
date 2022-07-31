@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../store';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
-export default function TextMenuViewModel() {
+export default function HeaderViewModel() {
   const [errorMessage, setErrorMessage] = useState('');
   const [theme, setTheme] = useLocalStorage('theme', 'light');
   const { isAuthenticated } = useSelector((state: RootState) => state.user);
@@ -15,9 +15,9 @@ export default function TextMenuViewModel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   !isAuthenticated && navigate('/');
-  // }, [isAuthenticated, navigate]);
+  useEffect(() => {
+    !isAuthenticated && navigate('/');
+  }, [isAuthenticated, navigate]);
 
   function onCLickChangeTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');

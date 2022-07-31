@@ -1,23 +1,18 @@
-import { CheckBox } from "@mui/icons-material";
-import { useTranslation } from "react-i18next";
-import { SearchInput } from "../SearchInput";
+import { CheckBox } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
+import { SearchInput } from '../SearchInput';
 import {
   Buttons,
   ButtonsContainer,
   SearchButton,
   SearchContainer,
-} from "./styles";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { useDispatch } from "react-redux";
-import { setIsFiltering } from "../../store/slices/emailSlice";
+} from './styles';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import useViewModel from './ViewModel';
 
 function SearchComponent() {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
-
-  function handleClick() {
-    dispatch(setIsFiltering());
-  }
+  const { removeMarked, clickFilter } = useViewModel();
 
   return (
     <SearchContainer>
@@ -25,11 +20,13 @@ function SearchComponent() {
       <ButtonsContainer>
         <Buttons>
           <CheckBox />
-          <SearchButton variant='contained'>{t("Assign")}</SearchButton>
-          <SearchButton variant='contained'>{t("Archive")}</SearchButton>
-          <SearchButton variant='contained'>{t("Schedule")}</SearchButton>
+          <SearchButton variant='contained'>{t('Assign')}</SearchButton>
+          <SearchButton variant='contained' onClick={removeMarked}>
+            {t('Archive')}
+          </SearchButton>
+          <SearchButton variant='contained'>{t('Schedule')}</SearchButton>
         </Buttons>
-        <FilterAltIcon onClick={handleClick} />
+        <FilterAltIcon onClick={clickFilter} />
       </ButtonsContainer>
     </SearchContainer>
   );

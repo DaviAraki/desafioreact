@@ -1,15 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { Email, setEmailFilter, subMenu } from "../../store/slices/emailSlice";
-import { Input } from "./styles";
+import { Email, subMenu } from '../../store/slices/emailSlice';
+import { Input } from './styles';
+import useViewModel from './ViewModel';
 
 function SearchInput() {
-  const { items } = useSelector((state: RootState) => state.emails);
-  const dispatch = useDispatch();
-
-  const handleChange = (e: string) => {
-    dispatch(setEmailFilter(e));
-  };
+  const { handleChange, items } = useViewModel();
 
   return (
     <>

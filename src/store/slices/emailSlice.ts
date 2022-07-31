@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "..";
-import { emailsApi } from "../../services/emails";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '..';
+import { emailsApi } from '../../services/emails';
 
 export interface EmailState {
   items: Email[];
@@ -27,7 +27,7 @@ const initialState: EmailState = {
 };
 
 export const emailsSlice = createSlice({
-  name: "emails",
+  name: 'emails',
   initialState,
   reducers: {
     setEmailFilter: (state, action: PayloadAction<string>) => {

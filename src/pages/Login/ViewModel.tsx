@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as FirebaseController from '../../services/firebase/firebaseController';
 import { UserCredential } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,12 +8,18 @@ import {
   setUser,
   UserInfo,
 } from '../../store/slices/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPageViewModel() {
   const auth = FirebaseController.firebaseAuth.getAuth();
   const [errorMessage, setErrorMessage] = useState('');
   const { isAuthenticated } = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isAuthenticated && navigate('/home');
+  }, [isAuthenticated, navigate]);
 
   const saveUser = (userCredentials: UserCredential) => {
     const user = {

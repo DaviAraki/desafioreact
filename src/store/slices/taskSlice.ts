@@ -30,6 +30,9 @@ export const taskSlice = createSlice({
     setMarked: (state, action: PayloadAction<number[]>) => {
       state.marked = action.payload;
     },
+    archiveTasks: (state, action: PayloadAction<Tasks[]>) => {
+      state.menus = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -44,6 +47,6 @@ export const taskSlice = createSlice({
 export const tasks = (state: RootState) => state.tasks;
 export const selectMarked = (state: RootState) => state.tasks.marked;
 
-export const { setMarked } = taskSlice.actions;
+export const { setMarked, archiveTasks } = taskSlice.actions;
 
 export default taskSlice.reducer;

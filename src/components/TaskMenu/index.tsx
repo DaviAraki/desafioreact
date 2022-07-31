@@ -1,12 +1,9 @@
-import { useSelector } from "react-redux";
-import { useGetFeaturesQuery } from "../../services/tasks";
-import { RootState } from "../../store";
-import { Tasks, TaskState } from "../../store/slices/taskSlice";
-import TaskList from "../TaskList";
+import { Tasks } from '../../store/slices/taskSlice';
+import TaskList from '../TaskList';
+import useViewModel from './ViewModel';
 
 export const TaskMenu = () => {
-  const { data } = useGetFeaturesQuery({});
-  const { menus } = useSelector((state: RootState) => state.tasks as TaskState);
+  const { data, menus } = useViewModel();
 
   return (
     <div>

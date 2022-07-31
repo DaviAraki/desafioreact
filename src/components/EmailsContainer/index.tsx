@@ -1,14 +1,9 @@
-import { useSelector } from "react-redux";
-import { useGetEmailsQuery } from "../../services/emails";
-import { RootState } from "../../store";
-import { Email, subMenu } from "../../store/slices/emailSlice";
-import { EmailItem } from "../EmailItem";
+import { Email, subMenu } from '../../store/slices/emailSlice';
+import { EmailItem } from '../EmailItem';
+import useViewModel from './ViewModel';
 
 function EmailsContainer() {
-  const { data } = useGetEmailsQuery({});
-  const { items, isFiltering, emailFilter } = useSelector(
-    (state: RootState) => state.emails
-  );
+  const { data, items, isFiltering, emailFilter } = useViewModel();
 
   return (
     <div>
