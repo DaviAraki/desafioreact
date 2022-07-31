@@ -3,12 +3,12 @@ import { RootState } from '..';
 import { emailsApi } from '../../services/emails';
 
 export interface EmailState {
-  items: Emails[];
+  items: Email[];
 }
 
-export interface Emails {
+export interface Email {
   id?: number;
-  subMenus: subMenu[];
+  subMenuItems: subMenu[];
 }
 
 export interface subMenu {

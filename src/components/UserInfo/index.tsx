@@ -1,5 +1,6 @@
 import { Divider } from '@mui/material';
-import { UserInfoContainer, UserInitialsContainer } from './styles';
+import { UserInitials } from '../UserInitials';
+import { UserInfoContainer } from './styles';
 import useViewModel from './ViewModel';
 
 function UserInfo() {
@@ -8,7 +9,7 @@ function UserInfo() {
   return (
     <>
       <UserInfoContainer>
-        <UserInitialsContainer>{initials}</UserInitialsContainer>
+        <UserInitials>{initials}</UserInitials>
       </UserInfoContainer>
       <Divider variant='middle' />
     </>
