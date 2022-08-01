@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+//Essa função recebe uma chave e um valor e armazena no local storage
 const useLocalStorage = (key: string, initialValue: any) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {

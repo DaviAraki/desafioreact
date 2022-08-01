@@ -15,6 +15,7 @@ export default function HeaderViewModel() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //Essa função verifica se o usuário está logado e se não estiver, redireciona para a página de login
   useEffect(() => {
     !isAuthenticated && navigate('/');
   }, [isAuthenticated, navigate]);
@@ -27,13 +28,13 @@ export default function HeaderViewModel() {
     dispatch(changeTheme(theme));
   }, [dispatch, theme]);
 
+  //essa função desloga o usuário
   async function onButtonLogoutClick() {
     setErrorMessage('');
     try {
       await FirebaseController.logout();
       dispatch(setAuthentication(false));
       navigate('/');
-      console.log('oi222');
     } catch (err) {
       if (err instanceof Error) {
         setErrorMessage(err.message);

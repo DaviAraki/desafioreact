@@ -14,6 +14,7 @@ export default function TasklistViewModel() {
     setOpen(!open);
   };
 
+  //essa função é responsável por marcar as tarefas
   const handleChange = useCallback(
     (id: number) => {
       setChecked(!checked);

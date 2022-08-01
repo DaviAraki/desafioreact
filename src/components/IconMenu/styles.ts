@@ -1,6 +1,6 @@
-import { ListItem } from "@mui/material";
-import { styled as styledMaterial } from "@mui/material/styles";
-import styled from "styled-components";
+import { ListItem } from '@mui/material';
+import { styled as styledMaterial } from '@mui/material/styles';
+import styled from 'styled-components';
 
 export const ConfigurationsMenu = styledMaterial(ListItem)`
   width: auto;

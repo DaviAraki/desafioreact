@@ -5,6 +5,7 @@ import useViewModel from './ViewModel';
 function EmailsContainer() {
   const { data, items, isFiltering, emailFilter } = useViewModel();
 
+  //Esse componente pega os emails do store e os lista, além de filtrar de acordo com o texto do SearchInput
   return (
     <div>
       {data &&
