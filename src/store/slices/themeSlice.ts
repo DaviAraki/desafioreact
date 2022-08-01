@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '..';
 
-interface ThemeState {
+export interface ThemeState {
   theme: string;
 }
 
