@@ -1,8 +1,8 @@
-import { UserInitialsContainer } from "./styles";
+import { UserInitialsContainer } from './styles';
 
 interface UserInitialsProps {
   children?: React.ReactNode;
-  size: "small" | "medium";
+  size: 'small' | 'medium';
 }
 
 function UserInitials({ children, size }: UserInitialsProps) {

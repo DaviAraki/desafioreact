@@ -1,9 +1,9 @@
-import * as React from "react";
-import ListItemText from "@mui/material/ListItemText";
-import Menu from "@mui/material/Menu";
-import { ConfigurationsMenu } from "./styles";
-import { useTranslation } from "react-i18next";
-import useViewModel from "./ViewModel";
+import * as React from 'react';
+import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import { ConfigurationsMenu } from './styles';
+import { useTranslation } from 'react-i18next';
+import useViewModel from './ViewModel';
 
 interface MenuProps {
   children?: React.ReactNode;
@@ -17,7 +17,7 @@ export default function LogoutMenu({ children, text }: MenuProps) {
   return (
     <>
       <ConfigurationsMenu
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={open ? 'true' : undefined}
         onClick={handleClickListItem}
       >
         <ListItemText primary={t(text)} />
@@ -28,8 +28,8 @@ export default function LogoutMenu({ children, text }: MenuProps) {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          "aria-labelledby": "lock-button",
-          role: "listbox",
+          'aria-labelledby': 'lock-button',
+          role: 'listbox',
         }}
       >
         {children}

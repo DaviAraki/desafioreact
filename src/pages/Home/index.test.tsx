@@ -1,5 +1,4 @@
 import { screen } from '@testing-library/react';
-import exp from 'constants';
 import { Home } from '.';
 import { getStateWithItems, renderWithContext } from '../../utils/test-utils';
 

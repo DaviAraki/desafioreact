@@ -1,8 +1,8 @@
-import * as React from "react";
-import Menu from "@mui/material/Menu";
-import { ConfigurationsMenu, MenuContainer } from "./styles";
-import useViewModel from "./ViewModel";
-import MenuIcon from "@mui/icons-material/Menu";
+import * as React from 'react';
+import Menu from '@mui/material/Menu';
+import { ConfigurationsMenu, MenuContainer } from './styles';
+import useViewModel from './ViewModel';
+import MenuIcon from '@mui/icons-material/Menu';
 
 interface MenuProps {
   children?: React.ReactNode;
@@ -14,7 +14,7 @@ export default function IconMenu({ children }: MenuProps) {
   return (
     <>
       <ConfigurationsMenu
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={open ? 'true' : undefined}
         onClick={handleClickListItem}
       >
         <MenuIcon />
@@ -25,8 +25,8 @@ export default function IconMenu({ children }: MenuProps) {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          "aria-labelledby": "lock-button",
-          role: "listbox",
+          'aria-labelledby': 'lock-button',
+          role: 'listbox',
         }}
       >
         <MenuContainer>{children}</MenuContainer>

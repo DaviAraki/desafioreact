@@ -1,7 +1,6 @@
-import * as firebaseApp from "firebase/app";
-import * as firebaseAuth from "firebase/auth";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { getDatabase, ref, set, update } from "firebase/database";
+import * as firebaseApp from 'firebase/app';
+import * as firebaseAuth from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 
 const FIREBASE_CONFIG = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -12,7 +11,7 @@ const FIREBASE_CONFIG = {
   appId: process.env.REACT_APP_APP_ID,
 };
 
-const FIREBASE_APP = firebaseApp.initializeApp(FIREBASE_CONFIG);
+export const FIREBASE_APP = firebaseApp.initializeApp(FIREBASE_CONFIG);
 
 export async function signInWithGoogle() {
   return firebaseAuth.signInWithPopup(

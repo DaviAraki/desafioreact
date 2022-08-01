@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
-import { styled as styledMaterial } from "@mui/material/styles";
-import styled from "styled-components";
+import { Button } from '@mui/material';
+import { styled as styledMaterial } from '@mui/material/styles';
+import styled from 'styled-components';
 
 export const LoginContainer = styled.div`
   width: 100%;
