@@ -11,7 +11,6 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPageViewModel() {
-  const auth = FirebaseController.firebaseAuth.getAuth();
   const [errorMessage, setErrorMessage] = useState('');
   const { isAuthenticated } = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
