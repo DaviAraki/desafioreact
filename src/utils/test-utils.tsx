@@ -9,6 +9,7 @@ import { EmailState } from '../store/slices/emailSlice';
 import { TaskState } from '../store/slices/taskSlice';
 import { UserState } from '../store/slices/userSlice';
 import { ThemeState } from '../store/slices/themeSlice';
+import i18next from 'i18next';
 
 export function renderWithContext(
   element: React.ReactElement,
@@ -72,4 +73,14 @@ export function getStateWithItems(
     },
   };
   return state;
+}
+
+export function mockedi18n() {
+  Object.defineProperty(i18next, 'useTranslation', {
+    value: jest.fn().mockImplementation(() => {
+      return {
+        t: (key: string) => key,
+      };
+    }),
+  });
 }
