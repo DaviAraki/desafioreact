@@ -3,19 +3,18 @@ import TaskList from '../TaskList';
 import useViewModel from './ViewModel';
 
 export const TaskMenu = () => {
-  const { data, menus } = useViewModel();
+  const { menus } = useViewModel();
 
   return (
     <div>
-      {data &&
-        menus.map((feature: Tasks) => (
-          <TaskList
-            id={feature.id}
-            key={feature.id}
-            name={feature.name}
-            subMenus={feature.subMenus}
-          />
-        ))}
+      {menus.map((feature: Tasks) => (
+        <TaskList
+          id={feature.id}
+          key={feature.id}
+          name={feature.name}
+          subMenus={feature.subMenus}
+        />
+      ))}
     </div>
   );
 };
