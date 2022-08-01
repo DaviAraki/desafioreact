@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 //Essa função recebe uma chave e um valor e armazena no local storage
-const useLocalStorage = (key: string, initialValue: any) => {
+const useLocalStorage = (key: string, initialValue: unknown) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const value = localStorage.getItem(key);
@@ -16,12 +16,10 @@ const useLocalStorage = (key: string, initialValue: any) => {
       return initialValue;
     }
   });
-  const setValue = (value: any) => {
+  const setValue = (value: unknown) => {
     try {
-      console.log(value);
       localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
-      console.log(error);
       alert(error);
     }
     setStoredValue(value);

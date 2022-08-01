@@ -7,6 +7,8 @@ Instalar a extensão[CORS Unblock](https://chrome.google.com/webstore/detail/cor
 Em seguida usar o yarn install para obter instalar os módulos do projeto.
 Para rodar o app, usar o yarn start.
 
+Instalar a extensão do ESLINT no seu editor de texto.
+
 ## Escolhas
 
 Escolhi usar a biblioteca Material UI, já que os componentes do layout são muito parecidos com os oferecidos pela biblioteca.

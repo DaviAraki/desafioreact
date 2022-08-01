@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { styled as styledMaterial } from "@mui/material/styles";
-import { Button } from "@mui/material";
+import styled from 'styled-components';
+import { styled as styledMaterial } from '@mui/material/styles';
+import { Button } from '@mui/material';
 
 export const HeaderContainer = styled.header`
   width: 100vw;
