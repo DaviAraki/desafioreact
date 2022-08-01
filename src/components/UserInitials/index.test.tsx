@@ -1,5 +1,3 @@
-//create unit test for user initials
-
 import { screen } from '@testing-library/react';
 import { UserInitials } from '.';
 import { renderWithContext } from '../../utils/test-utils';
