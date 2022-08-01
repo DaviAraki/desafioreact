@@ -15,7 +15,7 @@ export interface Email {
 
 export interface subMenu {
   name: string;
-  id: number;
+  id: string;
   subject: string;
   owner: string;
   users: string[];
